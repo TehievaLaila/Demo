@@ -131,8 +131,15 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="Ppage\ListProdPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Ppage\ListProdPage.xaml.cs">
+      <DependentUpon>ListProdPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -167,32 +174,32 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Img\paper_0.jpeg" />
-    <Resource Include="Img\paper_1.jpeg" />
-    <Resource Include="Img\paper_10.jpeg" />
-    <Resource Include="Img\paper_11.jpeg" />
-    <Resource Include="Img\paper_12.jpeg" />
-    <Resource Include="Img\paper_13.jpeg" />
-    <Resource Include="Img\paper_14.jpeg" />
-    <Resource Include="Img\paper_15.jpeg" />
-    <Resource Include="Img\paper_16.jpeg" />
-    <Resource Include="Img\paper_17.jpeg" />
-    <Resource Include="Img\paper_18.jpeg" />
-    <Resource Include="Img\paper_19.jpeg" />
-    <Resource Include="Img\paper_2.jpeg" />
-    <Resource Include="Img\paper_20.jpeg" />
-    <Resource Include="Img\paper_21.jpeg" />
-    <Resource Include="Img\paper_22.jpeg" />
-    <Resource Include="Img\paper_23.jpeg" />
-    <Resource Include="Img\paper_24.jpeg" />
-    <Resource Include="Img\paper_25.jpeg" />
-    <Resource Include="Img\paper_3.jpeg" />
-    <Resource Include="Img\paper_4.jpeg" />
-    <Resource Include="Img\paper_5.jpeg" />
-    <Resource Include="Img\paper_6.jpeg" />
-    <Resource Include="Img\paper_7.jpeg" />
-    <Resource Include="Img\paper_8.jpeg" />
-    <Resource Include="Img\paper_9.jpeg" />
+    <Resource Include="products\paper_0.jpeg" />
+    <Resource Include="products\paper_1.jpeg" />
+    <Resource Include="products\paper_10.jpeg" />
+    <Resource Include="products\paper_11.jpeg" />
+    <Resource Include="products\paper_12.jpeg" />
+    <Resource Include="products\paper_13.jpeg" />
+    <Resource Include="products\paper_14.jpeg" />
+    <Resource Include="products\paper_15.jpeg" />
+    <Resource Include="products\paper_16.jpeg" />
+    <Resource Include="products\paper_17.jpeg" />
+    <Resource Include="products\paper_18.jpeg" />
+    <Resource Include="products\paper_19.jpeg" />
+    <Resource Include="products\paper_2.jpeg" />
+    <Resource Include="products\paper_20.jpeg" />
+    <Resource Include="products\paper_21.jpeg" />
+    <Resource Include="products\paper_22.jpeg" />
+    <Resource Include="products\paper_23.jpeg" />
+    <Resource Include="products\paper_24.jpeg" />
+    <Resource Include="products\paper_25.jpeg" />
+    <Resource Include="products\paper_3.jpeg" />
+    <Resource Include="products\paper_4.jpeg" />
+    <Resource Include="products\paper_5.jpeg" />
+    <Resource Include="products\paper_6.jpeg" />
+    <Resource Include="products\paper_7.jpeg" />
+    <Resource Include="products\paper_8.jpeg" />
+    <Resource Include="products\paper_9.jpeg" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="DB\Model1.Context.tt">
@@ -205,6 +212,7 @@
       <DependentUpon>Model1.edmx</DependentUpon>
       <LastGenOutput>Model1.cs</LastGenOutput>
     </Content>
+    <Resource Include="products\picture.png" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />

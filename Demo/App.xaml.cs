@@ -5,6 +5,7 @@ using System.Data;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows;
+using Demo.DB;
 
 namespace Demo
 {
@@ -13,5 +14,6 @@ namespace Demo
     /// </summary>
     public partial class App : Application
     {
+        public static DemoExEntities DemoDb = new DemoExEntities();
     }
 }

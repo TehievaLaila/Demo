@@ -83,20 +83,54 @@ namespace Demo.Ppage
             pageNumber++;
             RefreshPagination();
         }
-        private void Button_Click(object sender, RoutedCommand e)
+        private void Button_Click(object sender, RoutedEventArgs e)
         {
             Button button = (Button)sender;
             pageNumber = Convert.ToInt32(button.Content) - 1;
             RefreshPagination();
         }
+        private void RefreshButtons()
+        {
+            WPButtons.Children.Clear();
+            if (App.DemoDb.Product.ToList().Count % 10 == 0)
+            {
+                for (int i = 0; i < App.DemoDb.Product.ToList().Count / 10; i++)
+                {
+                    Button button = new Button();
+                    button.Content = i + 1;
+                    button.Click += Button_Click;
+                    button.Margin = new Thickness(5);
+                    button.Width = 20;
+                    button.Height = 20;
+                    button.FontSize = 14;
+                    WPButtons.Children.Add(button);
+                }
+            }
+            else
+            {
+                for (int i = 0; i < App.DemoDb.Agent.ToList().Count / 10 + 1; i++)
+                {
+                    Button button = new Button();
+                    button.Content = i + 1;
+                    button.Click += Button_Click;
+                    button.Margin = new Thickness(5);
+                    button.Width = 20;
+                    button.Height = 20;
+                    button.FontSize = 14;
+                    WPButtons.Children.Add(button);
+                }
+            }
+        }
         private void Search_SelectionChanged(object sender, RoutedEventArgs e)
         {
-
+            var res = App.DemoDb.Product.ToList();
+            res = res.Where(X => X.Title.ToLower().Contains(Search.Text)).Skip(pageNumber * 10).Take(10).ToList();
+            DGWrites.ItemsSource = res.ToList();
         }
 
         private void Sort_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-
+            SortInfo();
         }
         private void SortInfo()
         {
@@ -127,7 +161,7 @@ namespace Demo.Ppage
 
         private void Filtr_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-
+            var selectedType
         }
 
         private void AddProdBtn_Click(object sender, RoutedEventArgs e)

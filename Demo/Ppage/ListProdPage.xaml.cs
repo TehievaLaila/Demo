@@ -27,6 +27,11 @@ namespace Demo.Ppage
             Filtr.Text = "Фильтрация";
             Filtr.ItemsSource = App.DemoDb.ProductType.ToList();
             Filtr.DisplayMemberPath = "Title";
+            SortAdd();
+            RefreshPagination();
+            RefreshButtons();
+            ImageNull();
+            SortInfo();
         }
 
         private void SortAdd()
@@ -161,17 +166,33 @@ namespace Demo.Ppage
 
         private void Filtr_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            var selectedType
+            var selectedType = Filtr.SelectedItem;
+            var type = ((ProductType)selectedType).ID;
+            DGWrites.ItemsSource = App.DemoDb.Product.Where(x => x.ProductTypeID == type).ToList();
         }
 
         private void AddProdBtn_Click(object sender, RoutedEventArgs e)
         {
-
+            NavigationService.Navigate(new AddProdPage());
         }
 
         private void DGWrites_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-
+            DeleteItemWindow del = new DeleteItemWindow();
+            if(del.ShowDialog()==true)
+            {
+                try
+                {
+                    var item = DGWrites.SelectedItem as Product;
+                    App.DemoDb.Product.Remove(item);
+                    App.DemoDb.SaveChanges();
+                    RefreshButtons();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"{ex}");
+                }
+            }
         }
     }
 }

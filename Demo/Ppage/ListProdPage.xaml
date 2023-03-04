@@ -15,10 +15,24 @@
             <RowDefinition Height="auto"/>
         </Grid.RowDefinitions>
         <WrapPanel>
-            <TextBox x:Name="Search" Height="30" Width="200" Margin="10" SelectionChanged="Search_SelectionChanged"/>
-            <ComboBox x:Name="Sort" Height="30" Width="200" Margin="10" SelectionChanged="Sort_SelectionChanged"/>
-            <ComboBox x:Name="Filtr" Height="30" Width="200" Margin="10" SelectionChanged="Filtr_SelectionChanged"/>
-            <Button x:Name="AddProdBtn" Content="Добавить товар" Height="30" Click="AddProdBtn_Click"/>
+            <TextBox x:Name="Search" Height="30" Width="200" Margin="10" SelectionChanged="Search_SelectionChanged" Background="White"/>
+            <ComboBox x:Name="Sort" Height="30" Width="200" Margin="10" SelectionChanged="Sort_SelectionChanged" BorderBrush="#FFCEFFF9">
+                <ComboBox.Background>
+                    <LinearGradientBrush EndPoint="0,1">
+                        <GradientStop Color="#FFF0F0F0"/>
+                        <GradientStop Color="#FFCEFFF9" Offset="1"/>
+                    </LinearGradientBrush>
+                </ComboBox.Background>
+            </ComboBox>
+            <ComboBox x:Name="Filtr" Height="30" Width="200" Margin="10" SelectionChanged="Filtr_SelectionChanged" BorderBrush="#FFCEFFF9">
+                <ComboBox.Background>
+                    <LinearGradientBrush EndPoint="0,1">
+                        <GradientStop Color="#FFF0F0F0"/>
+                        <GradientStop Color="#FFCEFFF9" Offset="1"/>
+                    </LinearGradientBrush>
+                </ComboBox.Background>
+            </ComboBox>
+            <Button x:Name="AddProdBtn" Content="Добавить товар" Height="30" Click="AddProdBtn_Click" Background="#FF00CC76"/>
         </WrapPanel>
         <ListView Margin="5" Grid.Row="1" x:Name="DGWrites" HorizontalContentAlignment="Stretch" SelectionChanged="DGWrites_SelectionChanged">
             <ListView.ItemTemplate>
@@ -44,11 +58,11 @@
             </ListView.ItemTemplate>
         </ListView>
         <WrapPanel Grid.Row="2" HorizontalAlignment="Right">
-            <Button x:Name="Bleft" Click="Bleft_Click" Content="left" Width="50" Margin="5"/>
+            <Button x:Name="Bleft" Click="Bleft_Click" Content="left" Width="50" Margin="5" Background="#FF00CC76"/>
             <ScrollViewer MaxWidth="300" Margin="5" ScrollViewer.HorizontalScrollBarVisibility="Visible" ScrollViewer.VerticalScrollBarVisibility="Hidden">
                 <WrapPanel x:Name="WPButtons"/>
             </ScrollViewer>
-            <Button x:Name="BRight" Click="BRight_Click" Content="right" Width="50" Margin="5"/>
+            <Button x:Name="BRight" Click="BRight_Click" Content="right" Width="50" Margin="5" Background="#FF00CC76"/>
         </WrapPanel>
     </Grid>
 </Page>
